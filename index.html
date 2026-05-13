@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerry Ji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s;
+    }
+    :root {
+      --bg:      #f5f0e8;
+      --card:    #fdfaf3;
+      --ink:     #1e1a12;
+      --mid:     #7a6c58;
+      --light:   #b0a492;
+      --accent:  #8b3a8a;
+      --border:  rgba(30,26,18,0.1);
+      --shadow:  0 2px 16px rgba(30,20,10,0.07);
+    }
+
+    /* dot-grid paper texture */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: radial-gradient(circle, rgba(30,20,10,0.065) 1.4px, transparent 1.4px);
+      background-size: 24px 24px;
+      background-position: 12px 12px;
+    }
+
+    /* ensure content above grid */
+    #root { position: relative; z-index: 1; }
+
+    /* sticky nav */
+    .jj-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,240,232,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* project cards */
+    .jj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 26px 28px 24px;
+      transition: box-shadow 0.2s, transform 0.18s, border-left-color 0.18s;
+      border-left: 2px solid transparent;
+      cursor: default;
+    }
+    .jj-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      border-left-color: var(--accent);
+    }
+
+    /* tech tags */
+    .jj-tag {
+      font-size: 12px; font-weight: 500;
+      color: var(--mid);
+      background: rgba(30,20,10,0.055);
+      border-radius: 4px;
+      padding: 3px 9px;
+    }
+
+    /* currently note */
+    .jj-note {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #fef5e0;
+      border: 1px solid rgba(192,88,40,0.18);
+      border-radius: 6px;
+      padding: 10px 16px;
+    }
+
+    /* section rule */
+    .jj-rule {
+      display: flex; align-items: center; gap: 20px;
+      margin-bottom: 36px;
+    }
+    .jj-rule::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* nav link hover */
+    .jj-nav-link { color: var(--mid); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.15s; }
+    .jj-nav-link:hover { color: var(--accent); }
+
+    /* footer links */
+    .jj-foot-link { text-decoration: none; transition: opacity 0.15s; }
+    .jj-foot-link:hover { opacity: 0.65; }
+
+    /* fade-in entrance */
+    @keyframes jjUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+    .jj-a1 { animation: jjUp 0.5s 0.05s ease both; }
+    .jj-a2 { animation: jjUp 0.5s 0.15s ease both; }
+    .jj-a3 { animation: jjUp 0.5s 0.25s ease both; }
+    .jj-a4 { animation: jjUp 0.5s 0.35s ease both; }
+
+    /* stack table */
+    .jj-stack-row {
+      display: grid; grid-template-columns: 130px 1fr; gap: 16px;
+      padding: 13px 0; border-bottom: 1px solid var(--border); align-items: baseline;
+    }
+
+    /* List layout specific override */
+    .jj-card-list {
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      gap: 24px;
+      align-items: start;
+      border-radius: 6px;
+    }
+
+    main { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+<div id="root">
+  <!-- NAV -->
+  <nav class="jj-nav">
+    <div style="max-width:860px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:56px;">
+      <span style="font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; font-style:italic; color:var(--ink);">
+        Jerry Ji
+      </span>
+      <div style="display:flex; gap:32px;">
+        <a href="#about" class="jj-nav-link">About</a>
+        <a href="#projects" class="jj-nav-link">Projects</a>
+        <a href="#contact" class="jj-nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO / ABOUT SECTION -->
+    <section id="about" style="max-width:860px; margin:0 auto; padding:80px 40px 68px;">
+      <div class="jj-a1">
+        <h1 style="font-family:'Cormorant Garamond',serif; font-size:82px; font-weight:600; line-height:0.92; letter-spacing:-0.025em; color:var(--ink); margin-bottom:28px;">
+          Jerry Ji
+        </h1>
+      </div>
+      <div class="jj-a2">
+        <p style="font-size:21px; color:var(--mid); line-height:1.45; margin-bottom:22px; font-weight:300;">
+          I make systems go faster than they have<br />any business going.
+        </p>
+        <p style="font-size:15px; color:var(--ink); line-height:1.85; max-width:560px; margin-bottom:36px;">
+          CS student at Cornell with a passion for the "engine room" of
+          software — distributed systems, performance optimization, and
+          infrastructure. Whether it's squeezing every FLOP from a processor
+          or designing the system that keeps a product reliable at scale, I'm
+          happiest solving puzzles that matter.
+        </p>
+      </div>
+      <div class="jj-a3" style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+        <div class="jj-note">
+          <span style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.1em;">NOW</span>
+          <span style="font-size:14px; color:var(--ink);">Capacity Efficiency @ Meta</span>
+        </div>
+        <span style="font-size:13px; color:var(--light);">Cornell University · Ithaca, NY · he/him</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" style="max-width:860px; margin:0 auto; padding:0 40px 72px;">
+      <div class="jj-rule">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--ink); white-space:nowrap;">Experience</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <!-- Meta -->
+        <div class="jj-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase;">Upcoming</span>
+            <span style="font-size:12px; color:var(--light);">Summer 2025</span>
+          </div>
+          <div style="font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-0.02em; margin-bottom:3px;">Meta</div>
+          <div style="font-size:13px; color:var(--mid); margin-bottom:14px;">Software Engineer Intern · Capacity Efficiency</div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; margin-bottom:16px;">Joining the Capacity Efficiency team to work on resource optimization across Meta's global infrastructure — making the fleet run leaner at massive scale.</p>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <span class="jj-tag">Python</span>
+            <span class="jj-tag">Go</span>
+            <span class="jj-tag">Distributed Systems</span>
+          </div>
+        </div>
+        <!-- PayPal -->
+        <div class="jj-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase;">Past</span>
+            <span style="font-size:12px; color:var(--light);">Summer 2024</span>
+          </div>
+          <div style="font-size:20px; font-weight:700; color:var(--ink); letter-spacing:-0.02em; margin-bottom:3px;">PayPal</div>
+          <div style="font-size:13px; color:var(--mid); margin-bottom:14px;">Software Engineer Intern · Payments Infrastructure</div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; margin-bottom:16px;">Hardened microservices in high-traffic payment processing environments. Improved reliability and observability in a system handling millions of transactions daily.</p>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <span class="jj-tag">Java</span>
+            <span class="jj-tag">Microservices</span>
+            <span class="jj-tag">Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" style="max-width:860px; margin:0 auto; padding:0 40px 72px;">
+      <div class="jj-rule">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--ink); white-space:nowrap;">
+          Projects
+        </span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <!-- Project 01 -->
+        <div class="jj-card jj-card-list">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px;">HPC</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink); line-height:1.3; letter-spacing:-0.01em;">High-Performance Kernels</div>
+          </div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; padding-top:2px;">SIMD-vectorized matrix operations in C for Cornell CS 5220. Cache-aware parallel algorithms approaching hardware throughput limits.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-top:2px;">
+            <span style="font-size:12px; color:var(--light);">2024</span>
+            <div style="display:flex; gap:5px;">
+              <span class="jj-tag">C</span>
+              <span class="jj-tag">OpenMP</span>
+              <span class="jj-tag">SIMD</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 02 -->
+        <div class="jj-card jj-card-list">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px;">ML / Infra</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink); line-height:1.3; letter-spacing:-0.01em;">RL Cluster Scheduling</div>
+          </div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; padding-top:2px;">Deep RL agent for data center resource allocation that consistently outperforms traditional heuristic schedulers on cluster throughput.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-top:2px;">
+            <span style="font-size:12px; color:var(--light);">2024</span>
+            <div style="display:flex; gap:5px;">
+              <span class="jj-tag">Python</span>
+              <span class="jj-tag">PyTorch</span>
+              <span class="jj-tag">RL</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 03 -->
+        <div class="jj-card jj-card-list">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px;">Systems</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink); line-height:1.3; letter-spacing:-0.01em;">Cornell Course Manager</div>
+          </div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; padding-top:2px;">Maintaining and modernizing a 20-year-old CMS for 8,000+ Cornell students. Zero-downtime infrastructure refactor, 4× perf improvement.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-top:2px;">
+            <span style="font-size:12px; color:var(--light);">2023–</span>
+            <div style="display:flex; gap:5px;">
+              <span class="jj-tag">Java</span>
+              <span class="jj-tag">Go</span>
+              <span class="jj-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 04 -->
+        <div class="jj-card jj-card-list">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px;">ML Research</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink); line-height:1.3; letter-spacing:-0.01em;">ML From Scratch</div>
+          </div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; padding-top:2px;">Bayesian inference, kernelization, deep learning, CNNs and Transformers built without autograd — to fully understand the internals.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-top:2px;">
+            <span style="font-size:12px; color:var(--light);">2023</span>
+            <div style="display:flex; gap:5px;">
+              <span class="jj-tag">Python</span>
+              <span class="jj-tag">NumPy</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 05 -->
+        <div class="jj-card jj-card-list">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px;">ML Research</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink); line-height:1.3; letter-spacing:-0.01em;">Graph Attention Networks</div>
+          </div>
+          <p style="font-size:13px; color:var(--mid); line-height:1.8; padding-top:2px;">Reimplementation of GAT (Veličković et al., ICLR 2018) for Cornell CS 4782. Full pipeline: data loading, training, evaluation.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-top:2px;">
+            <span style="font-size:12px; color:var(--light);">2023</span>
+            <div style="display:flex; gap:5px;">
+              <span class="jj-tag">Python</span>
+              <span class="jj-tag">PyTorch</span>
+              <span class="jj-tag">GNNs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; text-align:right;">
+        <a href="https://github.com/ruiangji" target="_blank" rel="noreferrer"
+          style="font-size:13px; color:var(--accent); text-decoration:none; font-weight:500;">
+          View all on GitHub →
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT / STACK SECTION -->
+    <section id="stack" style="max-width:860px; margin:0 auto; padding:0 40px 72px;">
+      <div class="jj-rule">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--ink); white-space:nowrap;">
+          About
+        </span>
+      </div>
+      <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:64px;">
+        <div>
+          <p style="font-size:15px; color:var(--ink); line-height:1.88; margin-bottom:18px;">
+            I'm happiest in the engine room — whether that's squeezing every
+            FLOP out of a processor with SIMD intrinsics, or designing the
+            distributed system that makes a product reliable at scale.
+          </p>
+          <p style="font-size:14px; color:var(--mid); line-height:1.88;">
+            At PayPal I hardened microservices under real traffic. At Cornell
+            I maintain the CMS that keeps 8,000+ students' academic lives
+            running smoothly. This summer, I'm joining Meta's Capacity
+            Efficiency team — still chasing throughput, just at a different scale.
+          </p>
+        </div>
+        <div>
+          <div class="jj-stack-row">
+            <span style="font-size:11px; font-weight:600; color:var(--light); letter-spacing:0.07em; text-transform:uppercase;">Languages</span>
+            <span style="font-size:14px; color:var(--ink);">Java · Python · C++ · Go</span>
+          </div>
+          <div class="jj-stack-row">
+            <span style="font-size:11px; font-weight:600; color:var(--light); letter-spacing:0.07em; text-transform:uppercase;">Infrastructure</span>
+            <span style="font-size:14px; color:var(--ink);">Kubernetes · Docker · PostgreSQL</span>
+          </div>
+          <div class="jj-stack-row">
+            <span style="font-size:11px; font-weight:600; color:var(--light); letter-spacing:0.07em; text-transform:uppercase;">Low-level</span>
+            <span style="font-size:14px; color:var(--ink);">SIMD intrinsics · OpenMP</span>
+          </div>
+          <div class="jj-stack-row">
+            <span style="font-size:11px; font-weight:600; color:var(--light); letter-spacing:0.07em; text-transform:uppercase;">ML / AI</span>
+            <span style="font-size:14px; color:var(--ink);">PyTorch · NumPy · Transformers</span>
+          </div>
+          <div class="jj-stack-row">
+            <span style="font-size:11px; font-weight:600; color:var(--light); letter-spacing:0.07em; text-transform:uppercase;">Education</span>
+            <span style="font-size:14px; color:var(--ink);">Cornell University, B.S. CS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="border-top:1px solid var(--border);">
+    <div style="max-width:860px; margin:0 auto; padding:44px 40px; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--mid); margin-bottom:4px;">
+          Get in touch
+        </div>
+        <div style="font-size:13px; color:var(--light);">Cornell University · Ithaca, NY · 2025</div>
+      </div>
+      <div style="display:flex; gap:28px; font-size:14px; font-weight:500;">
+        <a href="mailto:rj@cornell.edu" class="jj-foot-link" style="color:var(--accent);">Email →</a>
+        <a href="#" class="jj-foot-link" style="color:var(--mid);">LinkedIn</a>
+        <a href="https://github.com/ruiangji" target="_blank" rel="noreferrer" class="jj-foot-link" style="color:var(--mid);">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
