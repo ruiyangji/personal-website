@@ -1,0 +1,67 @@
+---
+const { title, subtitle, img, desc, url, badge, badgeColor = "badge-primary", tags, metrics, target = "_self" } = Astro.props;
+import { Image } from "astro:assets";
+const tag_url = url && url.startsWith("/") ? url.split("/").slice(0, -1).join("/") + "/tag" : "#";
+---
+
+<div
+  class="group relative rounded-xl border border-base-300/80 bg-base-200/40 hover:bg-base-200/80 hover:border-primary/40 transition-all duration-300 p-5 shadow-sm hover:shadow-md"
+>
+  <a href={url} target={target} class="block">
+    <div class="flex flex-col md:flex-row gap-5 items-start">
+      {
+        img && (
+          <div class="w-full md:w-48 h-32 shrink-0 rounded-lg overflow-hidden bg-base-300/60 border border-base-300">
+            <Image
+              src={img}
+              width={750}
+              height={422}
+              format="webp"
+              alt={title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        )
+      }
+      <div class="grow w-full flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h2 class="text-lg md:text-xl font-bold tracking-tight text-base-content group-hover:text-primary transition-colors flex items-center gap-2">
+                {title}
+                {url && target === "_blank" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                )}
+              </h2>
+              {badge && <span class={`badge ${badgeColor} badge-sm font-mono text-[11px]`}>{badge}</span>}
+            </div>
+            {subtitle && <span class="text-xs text-base-content/60 font-mono">{subtitle}</span>}
+          </div>
+
+          <p class="text-sm text-base-content/80 leading-relaxed my-2">{desc}</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 mt-2 pt-2 border-t border-base-300/40">
+          {metrics && (
+            <span class="text-xs font-mono text-emerald-400 font-medium bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-800/40">
+              ⚡ {metrics}
+            </span>
+          )}
+          <div class="flex flex-wrap gap-1.5 ml-auto">
+            {
+              tags &&
+                tags.map((tag) => (
+                  <span class="tech-pill text-[11px]">
+                    {tag}
+                  </span>
+                ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Experience & Resume | Jerry Ji" sideBarActiveItemID="cv">
+  <!-- Profile Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-base-300">
+    <div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-base-content mb-1">
+        Jerry (Ruiyang) Ji
+      </h1>
+      <p class="text-sm font-mono text-base-content/70">
+        rj378@cornell.edu &bull; 707-849-2690 &bull; Ithaca, NY & Menlo Park, CA
+      </p>
+      <div class="flex flex-wrap gap-3 mt-2 text-xs font-mono">
+        <a href="https://linkedin.com/in/ruiyangji" target="_blank" class="text-primary hover:underline">linkedin.com/in/ruiyangji</a>
+        <span class="opacity-40">&bull;</span>
+        <a href="https://github.com/ruiyangji" target="_blank" class="text-primary hover:underline">github.com/ruiyangji</a>
+      </div>
+    </div>
+    <div>
+      <a href="/resume.pdf" target="_blank" class="btn btn-primary btn-sm gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Download Resume PDF
+      </a>
+    </div>
+  </div>
+
+  <!-- Summary Statement -->
+  <div class="mb-10 p-5 rounded-2xl bg-base-200/40 border border-base-300 text-sm text-base-content/85 leading-relaxed">
+    Computer Science student at Cornell University ('26) building AI agents, evaluation pipelines, and full-stack software. 
+    Shipped 150+ production diffs at Meta building automated evaluation harnesses and reflection agent workflows, engineered backend billing microservices at PayPal, and experienced with reinforcement learning (PPO) and high-performance vector kernels.
+  </div>
+
+  <!-- Education -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold tracking-tight text-base-content flex items-center gap-2 mb-4">
+      <span>Education</span>
+    </h2>
+
+    <div class="time-line-container grid gap-4">
+      <TimeLineElement
+        title="Cornell University — Ithaca, NY"
+        subtitle="Bachelor of Science in Computer Science | GPA: 3.8 (Aug 2023 – Dec 2026)"
+      >
+        <div class="mt-2 text-xs text-base-content/80">
+          <strong class="font-mono text-base-content/90">Relevant Coursework:</strong>
+          <div class="flex flex-wrap gap-1.5 mt-2">
+            <span class="tech-pill">Distributed Systems</span>
+            <span class="tech-pill">Operating Systems</span>
+            <span class="tech-pill">Machine Learning</span>
+            <span class="tech-pill">Deep Learning</span>
+            <span class="tech-pill">Parallel Computing</span>
+            <span class="tech-pill">Database Management</span>
+            <span class="tech-pill">Computer Networks</span>
+            <span class="tech-pill">Data Structures</span>
+          </div>
+        </div>
+      </TimeLineElement>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-bold tracking-tight text-base-content flex items-center gap-2 mb-4">
+      <span>Professional Experience</span>
+    </h2>
+
+    <div class="time-line-container">
+      <!-- Meta -->
+      <TimeLineElement
+        title="Meta — Software Engineering Intern | Capacity Efficiency"
+        subtitle="Menlo Park, CA &bull; May 2026 – Aug 2026"
+      >
+        <ul class="list-disc ml-5 mt-2 space-y-1.5 text-xs text-base-content/85 leading-relaxed">
+          <li>
+            Shipped <strong>150+ production diffs</strong> across 3 core milestones, independently scoping and architecting scalable backend features while leveraging AI developer tools to accelerate delivery cycles.
+          </li>
+          <li>
+            Increased review adoption from <strong>10% to 70%</strong> across 3 orgs by engineering an automated <strong>Chronos evaluation pipeline</strong> to backtest 2,000+ historical capacity optimization proposals.
+          </li>
+          <li>
+            Boosted evaluation accuracy by <strong>20%</strong> by adapting SkillOpt from Microsoft research and implementing automated reflection agent execution workflows for multi-step reasoning.
+          </li>
+          <li>
+            Scaled review workflows on the Efficiency Hero platform for <strong>3,000+ engineers</strong>, enabling automated validation and auditing of <strong>$300M+</strong> in quarterly compute savings.
+          </li>
+        </ul>
+      </TimeLineElement>
+
+      <!-- PayPal -->
+      <TimeLineElement
+        title="PayPal — Software Engineering Intern | Backend"
+        subtitle="San Jose, CA &bull; May 2025 – Aug 2025"
+      >
+        <ul class="list-disc ml-5 mt-2 space-y-1.5 text-xs text-base-content/85 leading-relaxed">
+          <li>
+            Engineered <strong>5+ production-ready backend features</strong> for core billing and subscription services by collaborating cross-functionally across Agile sprints with QA, product, and frontend teams.
+          </li>
+          <li>
+            Extended 10+ legacy API endpoints to support <strong>20+ downstream microservices</strong>, ensuring strict idempotency, contract compliance, and zero backward-compatibility regressions.
+          </li>
+          <li>
+            Diagnosed and resolved distributed latency and failure bottlenecks across <strong>8 services</strong> using end-to-end distributed tracing, request context propagation, and logging telemetry.
+          </li>
+          <li>
+            Elevated SonarQube code quality score from <strong>75 to 90</strong> by expanding unit and integration test suites and refactoring 20+ core service classes with standard Java design patterns.
+          </li>
+        </ul>
+      </TimeLineElement>
+
+      <!-- Cornell CMSX -->
+      <TimeLineElement
+        title="Cornell Course Management System X — Full Stack Software Engineer"
+        subtitle="Ithaca, NY &bull; Sep 2023 – Apr 2024"
+      >
+        <ul class="list-disc ml-5 mt-2 space-y-1.5 text-xs text-base-content/85 leading-relaxed">
+          <li>
+            Maintained a <strong>20+ year legacy codebase (100k+ LoC in Java)</strong> for <strong>8,000+ active students</strong> by collaborating in Agile sprints, conducting rigorous code reviews, and resolving technical debt.
+          </li>
+          <li>
+            Optimized server-side memory usage and reduced backend response times by <strong>15%</strong> by refactoring high-latency database queries and entity relationships utilizing Java WildFly and Jakarta JPA.
+          </li>
+        </ul>
+      </TimeLineElement>
+    </div>
+  </div>
+
+  <!-- Technical Skills Categorized -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-bold tracking-tight text-base-content flex items-center gap-2 mb-4">
+      <span>Technical Skills</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-4 rounded-xl bg-base-200/50 border border-base-300">
+        <h3 class="font-bold text-sm text-primary mb-2 font-mono">Languages</h3>
+        <div class="flex flex-wrap gap-1.5">
+          {["Java", "Python", "C", "C++", "Go", "SQL", "TypeScript", "Scala", "Hack", "PHP", "Bash"].map((skill) => (
+            <span class="tech-pill">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-base-200/50 border border-base-300">
+        <h3 class="font-bold text-sm text-secondary mb-2 font-mono">Systems & Frameworks</h3>
+        <div class="flex flex-wrap gap-1.5">
+          {["Kafka", "Spark", "Spring Boot", "Apache Iceberg", "Redis", "JunoDB", "OpenMP", "Microservices"].map((skill) => (
+            <span class="tech-pill">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-base-200/50 border border-base-300">
+        <h3 class="font-bold text-sm text-accent mb-2 font-mono">Cloud & DevOps</h3>
+        <div class="flex flex-wrap gap-1.5">
+          {["AWS", "Kubernetes", "Docker", "Jenkins", "CI/CD", "Terraform", "Linux", "Maven", "Gradle", "OpenTelemetry"].map((skill) => (
+            <span class="tech-pill">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-base-200/50 border border-base-300">
+        <h3 class="font-bold text-sm text-success mb-2 font-mono">Data & Storage</h3>
+        <div class="flex flex-wrap gap-1.5">
+          {["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "Jakarta JPA", "Hibernate", "Connection Pooling"].map((skill) => (
+            <span class="tech-pill">{skill}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

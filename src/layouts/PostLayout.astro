@@ -1,0 +1,84 @@
+---
+import { type BlogSchema } from "../content/config";
+import BaseLayout from "./BaseLayout.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import { Image } from "astro:assets";
+
+export interface Props extends BlogSchema {}
+
+const { title, description, pubDate, updatedDate, heroImage, badge, tags = [] } = Astro.props;
+dayjs.extend(localizedFormat);
+const displayDate = dayjs(pubDate).format("MMMM D, YYYY");
+---
+
+<BaseLayout title={title} description={description} image={heroImage} ogType="article" sideBarActiveItemID="blog">
+  <div class="mb-6">
+    <a href="/blog" class="inline-flex items-center gap-1.5 text-xs font-mono text-base-content/70 hover:text-primary transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to all essays
+    </a>
+  </div>
+
+  <article class="prose prose-invert lg:prose-lg max-w-[800px] mx-auto prose-headings:tracking-tight prose-a:text-primary prose-code:font-mono">
+    <header class="mb-8 not-prose border-b border-base-300 pb-6">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        {badge && <span class="badge badge-primary badge-sm font-mono text-xs">{badge}</span>}
+        <time class="text-xs font-mono text-base-content/60">{displayDate}</time>
+        {updatedDate && <span class="text-xs text-base-content/50">&bull; Updated {updatedDate}</span>}
+      </div>
+
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-base-content mb-4 leading-tight">
+        {title}
+      </h1>
+
+      {description && (
+        <p class="text-lg text-base-content/75 leading-relaxed mb-4">
+          {description}
+        </p>
+      )}
+
+      <!-- Author snippet -->
+      <div class="flex items-center justify-between pt-4 border-t border-base-300/60">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full overflow-hidden bg-base-300 ring-1 ring-base-300">
+            <img src="/images/profile.jpg" alt="Jerry Ji" class="w-full h-full object-cover" />
+          </div>
+          <div class="text-xs">
+            <div class="font-bold text-base-content">Jerry (Ruiyang) Ji</div>
+            <div class="text-base-content/60 font-mono">Cornell CS &bull; Systems &times; AI</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5">
+          {
+            tags.map((tag) => (
+              <a href={`/blog/tag/${tag}`} class="tech-pill text-[11px] hover:border-primary/50 transition-colors">
+                #{tag}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="prose-content leading-relaxed text-base-content/90">
+      <slot />
+    </div>
+
+    <!-- Article Footer -->
+    <footer class="mt-14 pt-8 border-t border-base-300 not-prose flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="text-xs text-base-content/60">
+          Thoughts or questions? Reach out at <a href="mailto:rj378@cornell.edu" class="text-primary hover:underline font-mono">rj378@cornell.edu</a>.
+        </p>
+      </div>
+      <a href="/blog" class="btn btn-sm btn-outline">
+        &larr; More Writing
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

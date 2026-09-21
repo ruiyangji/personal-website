@@ -1,0 +1,43 @@
+---
+import SideBarFooter from "./SideBarFooter.astro";
+import SideBarMenu from "./SideBarMenu.astro";
+const { sideBarActiveItemID } = Astro.props;
+---
+
+<div class="drawer-side z-40">
+  <label for="my-drawer" class="drawer-overlay"></label>
+  <aside class="px-4 pt-6 h-auto min-h-full w-[19rem] bg-base-200/70 backdrop-blur-md text-base-content flex flex-col justify-between border-r border-base-300">
+    <div>
+      <div class="w-full text-center mb-6">
+        <a href="/" class="group block">
+          <div class="avatar relative inline-block transition ease-out duration-300 group-hover:scale-105">
+            <div class="w-28 h-28 rounded-2xl ring-2 ring-primary/40 ring-offset-2 ring-offset-base-200 overflow-hidden shadow-lg bg-base-300">
+              <img src="/images/profile.jpg" alt="Jerry Ji" class="object-cover w-full h-full" />
+            </div>
+            <span class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-base-200 shadow-sm" title="Available for roles"></span>
+          </div>
+          <h1 class="text-xl font-bold tracking-tight mt-3 text-base-content group-hover:text-primary transition-colors">
+            Jerry Ji
+          </h1>
+          <p class="text-xs text-base-content/70 mt-0.5 font-mono">
+            Cornell CS &bull; AI Engineer
+          </p>
+          <div class="text-[11px] text-base-content/60 mt-1">
+            Ithaca, NY &bull; Bay Area
+          </div>
+        </a>
+
+        <!-- Focus tags -->
+        <div class="flex flex-wrap justify-center gap-1.5 mt-3 pt-3 border-t border-base-300/60">
+          <span class="text-[11px] px-2 py-0.5 rounded-md bg-base-300 text-base-content/80 font-mono">AI Agents</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-md bg-base-300 text-base-content/80 font-mono">Evaluations</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-md bg-base-300 text-base-content/80 font-mono">Full-Stack</span>
+        </div>
+      </div>
+
+      <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
+    </div>
+
+    <SideBarFooter />
+  </aside>
+</div>

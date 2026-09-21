@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Life & Photos | Jerry Ji" sideBarActiveItemID="life">
+  <div class="mb-8">
+    <h1 class="text-3xl font-extrabold tracking-tight text-base-content mb-2">
+      Life & Photos
+    </h1>
+    <p class="text-sm text-base-content/70">
+      A few snapshots outside of school and coding.
+    </p>
+  </div>
+
+  <div class="space-y-10">
+    <!-- Photo 1: Cooking -->
+    <div class="rounded-2xl border border-base-300 bg-base-200/40 overflow-hidden">
+      <div class="w-full h-[480px] overflow-hidden bg-base-300">
+        <img
+          src="/images/cooking.jpg"
+          alt="Cooking and hosting dinner"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+      <div class="p-5">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="text-base">🍳</span>
+          <h2 class="text-lg font-bold text-base-content">Cooking & Hosting</h2>
+        </div>
+        <p class="text-sm text-base-content/80 leading-relaxed">
+          I love cooking dinner for friends when I have free time. Usually experimenting with new recipes, making steak, homemade noodles, or hosting dinner nights. 
+          I even built a small AI meal prep app (<a href="/projects#meals-app" class="text-primary hover:underline font-mono text-xs">MealsApp</a>) to help plan groceries and pantry recipes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Photo 2: Travel in Budapest (Recentered) -->
+    <div class="rounded-2xl border border-base-300 bg-base-200/40 overflow-hidden">
+      <div class="w-full h-[540px] overflow-hidden bg-base-300">
+        <img
+          src="/images/travel.jpg"
+          alt="Jerry in Budapest"
+          class="w-full h-full object-cover object-[center_28%]"
+        />
+      </div>
+      <div class="p-5">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="text-base">✈️</span>
+          <h2 class="text-lg font-bold text-base-content">Traveling & Exploring</h2>
+        </div>
+        <p class="text-sm text-base-content/80 leading-relaxed">
+          Exploring new places whenever I get the chance. Walking around cities on foot, finding good local food, and traveling with friends (here in front of the illuminated Parliament building at night in Budapest).
+        </p>
+      </div>
+    </div>
+
+    <!-- Photo 3: Sunset Coast -->
+    <div class="rounded-2xl border border-base-300 bg-base-200/40 overflow-hidden">
+      <div class="w-full h-[480px] overflow-hidden bg-base-300">
+        <img
+          src="/images/sunset.jpg"
+          alt="California coast sunset"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+      <div class="p-5">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="text-base">🌊</span>
+          <h2 class="text-lg font-bold text-base-content">Coast & Sunsets</h2>
+        </div>
+        <p class="text-sm text-base-content/80 leading-relaxed">
+          Spent summer weekends driving along the California coast. Catching sunsets by the water is the easiest way to reset and unplug. Also love watching movies on quiet evenings (huge fan of sci-fi like <em>Interstellar</em> and Denis Villeneuve films).
+        </p>
+      </div>
+    </div>
+
+    <!-- Life in development mode banner -->
+    <div class="p-6 rounded-2xl bg-base-200/50 border border-dashed border-base-300 text-center">
+      <div class="text-2xl mb-2">🚧</div>
+      <h3 class="text-base font-bold text-base-content mb-1">Life Section in Development Mode</h3>
+      <p class="text-xs text-base-content/70 max-w-md mx-auto leading-relaxed font-mono">
+        More photos, recipes, and travel logs coming soon as I select and upload them.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

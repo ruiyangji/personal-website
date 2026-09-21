@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Projects | Jerry Ji" sideBarActiveItemID="projects">
+  <!-- Page Header -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-extrabold tracking-tight text-base-content mb-2">
+      Projects
+    </h1>
+    <p class="text-sm text-base-content/70">
+      AI agents, evaluations, full-stack applications, and backend systems.
+    </p>
+  </div>
+
+  <!-- Project 1: Meta Chronos & SkillOpt -->
+  <div id="meta-chronos" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">Chronos: AI Capacity Evaluation Pipeline (Meta)</h2>
+        <span class="badge badge-info badge-sm font-mono text-[11px]">AI Evals</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Summer 2026</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-4">
+      Built an automated evaluation pipeline to backtest optimization proposals across Meta's server infrastructure, supporting the Efficiency Hero platform used by 3,000+ engineers.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-3 p-3.5 rounded-xl bg-base-300/40 text-xs">
+      <div>
+        <div class="font-bold text-sky-400 mb-1">Backtesting Pipeline</div>
+        <p class="text-base-content/80">Evaluated 2,000+ historical capacity optimization proposals against real fleet utilization data, boosting engineer review adoption from <strong>10% to 70%</strong> across 3 orgs.</p>
+      </div>
+      <div>
+        <div class="font-bold text-sky-400 mb-1">Reflection Agent Workflows</div>
+        <p class="text-base-content/80">Adapted Microsoft's SkillOpt research to implement automated reflection loops for multi-step reasoning, improving proposal evaluation accuracy by <strong>20%</strong>.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-base-300">
+      <div class="flex flex-wrap gap-1.5">
+        <span class="tech-pill">AI Agents</span>
+        <span class="tech-pill">Evaluation Pipelines</span>
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Reflection Loops</span>
+      </div>
+      <span class="text-xs font-mono text-emerald-400 font-medium">Shipped 150+ Diffs</span>
+    </div>
+  </div>
+
+  <!-- Project 2: MealsApp -->
+  <div id="meals-app" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">MealsApp: AI Meal Prep & Kitchen Hub</h2>
+        <span class="badge badge-accent badge-sm font-mono text-[11px]">Full-Stack AI</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Sep 2026</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-4">
+      A serverless client-side PWA that connects personal Google Drive storage, Google Calendar time-blocking, and multimodal LLMs to manage pantry inventory and batch meal prep.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-3 p-3.5 rounded-xl bg-base-300/40 text-xs">
+      <div>
+        <div class="font-bold text-rose-400 mb-1">Dynamic Recipe Adaptation (Gemini 2.5 Flash)</div>
+        <p class="text-base-content/80">Scans live pantry stock and cookware, rewriting recipes with practical substitutions (e.g. shallots &rarr; yellow onion + garlic) and calculating a match score.</p>
+      </div>
+      <div>
+        <div class="font-bold text-rose-400 mb-1">Multimodal Receipt & Barcode Ingestion</div>
+        <p class="text-base-content/80">Extracts line items from Trader Joe's paper receipts via Gemini Vision OCR and looks up barcodes with Open Food Facts API (3.2M+ items).</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-base-300">
+      <div class="flex flex-wrap gap-1.5">
+        <span class="tech-pill">TypeScript</span>
+        <span class="tech-pill">Gemini 2.5 Flash</span>
+        <span class="tech-pill">Google Drive API</span>
+        <span class="tech-pill">Google Calendar</span>
+        <span class="tech-pill">PWA</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Personal Project</span>
+    </div>
+  </div>
+
+  <!-- Project 3: RL Cluster Scheduler -->
+  <div id="rl-scheduler" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">RL Cluster Scheduler</h2>
+        <span class="badge badge-warning badge-sm font-mono text-[11px]">Reinforcement Learning</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Jan 2026 - Present</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-4">
+      Built a discrete-event simulator to train RL agents for job scheduling under CPU and Memory constraints, replacing heuristic schedulers with learned job packing policies.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-3 p-3.5 rounded-xl bg-base-300/40 text-xs">
+      <div>
+        <div class="font-bold text-amber-400 mb-1">Action Masking</div>
+        <p class="text-base-content/80">Enforced strict resource limits during action selection, boosting PPO training convergence by <strong>40%</strong>.</p>
+      </div>
+      <div>
+        <div class="font-bold text-amber-400 mb-1">Set-Attention Policy</div>
+        <p class="text-base-content/80">Permutation-invariant attention network that enables <strong>zero-shot generalization</strong> to clusters 2x larger than the training environment.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-base-300">
+      <div class="flex flex-wrap gap-1.5">
+        <span class="tech-pill">PyTorch</span>
+        <span class="tech-pill">Gymnasium</span>
+        <span class="tech-pill">PPO</span>
+        <span class="tech-pill">Attention</span>
+      </div>
+      <a href="https://github.com/ruiyangji" target="_blank" class="text-xs text-primary hover:underline font-mono">
+        GitHub &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Project 4: High-Performance SpMV Benchmark -->
+  <div id="spmv-benchmark" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">High-Performance SpMV Benchmark</h2>
+        <span class="badge badge-success badge-sm font-mono text-[11px]">C / SIMD</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Spring 2026</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-4">
+      Optimized Sparse Matrix-Vector Multiplication (SpMV) kernels in C across CSR, ELLPACK, and SELL-C-sigma formats using AVX2 SIMD intrinsics and OpenMP multi-threading. Reached <strong>85%+ of theoretical peak memory bandwidth</strong> verified by Roofline Analysis.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-base-300">
+      <div class="flex flex-wrap gap-1.5">
+        <span class="tech-pill">C</span>
+        <span class="tech-pill">AVX2 SIMD</span>
+        <span class="tech-pill">OpenMP</span>
+        <span class="tech-pill">Roofline Model</span>
+      </div>
+      <a href="https://github.com/ruiyangji" target="_blank" class="text-xs text-primary hover:underline font-mono">
+        GitHub &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Project 5: PayPal Backend -->
+  <div class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">Core Billing & Subscription Services (PayPal)</h2>
+        <span class="badge badge-neutral badge-sm font-mono text-[11px]">Backend</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Summer 2025</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-3">
+      Extended 10+ legacy API endpoints across 20+ downstream microservices with strict idempotency and zero regression. Diagnosed distributed latency bottlenecks across 8 services using OpenTelemetry distributed tracing.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 pt-3 border-t border-base-300">
+      <span class="tech-pill">Java</span>
+      <span class="tech-pill">Spring Boot</span>
+      <span class="tech-pill">Microservices</span>
+      <span class="tech-pill">OpenTelemetry</span>
+    </div>
+  </div>
+</BaseLayout>

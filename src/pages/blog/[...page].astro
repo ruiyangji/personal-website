@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../../lib/createSlug";
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection("blog");
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+
+const upcomingTopics = [
+  {
+    title: "The Engineer's Job Is Shifting from Execution to Steering",
+    desc: "When AI can handle mechanical code synthesis, human value concentrates in formulating objectives, boundary invariants, and organizational context."
+  },
+  {
+    title: "Why Context Is the Real Advantage of Internal AI Agents",
+    desc: "Why generic chatbots fall flat inside enterprise monoliths while connected agents with internal schema and telemetry access create step-function leverage."
+  },
+  {
+    title: "From One Experiment at a Time to Twenty: Engineering When Iteration Becomes Cheap",
+    desc: "How zero-marginal-cost scaffolding fundamentally shifts engineering psychology from conservative execution to high-cadence empirical testing."
+  },
+  {
+    title: "Why Productionizing Agents Is Harder Than Making a Good Demo",
+    desc: "The gulf between happy-path demos and production systems: partial failures, retries, distributed latency, and idempotent state machines."
+  },
+  {
+    title: "What RL Schedulers and AI Agents Have in Common",
+    desc: "Actions, hard constraints, and delayed feedback loops—why discrete-event simulators and agent evaluation harnesses share the same DNA."
+  }
+];
+---
+
+<BaseLayout title="Writing & Notes | Jerry Ji" sideBarActiveItemID="blog">
+  <div class="mb-10">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-primary/10 text-primary border border-primary/20 mb-3">
+      <span>Systems &bull; AI Agents &bull; Engineering Culture</span>
+    </div>
+    <h1 class="text-4xl font-extrabold tracking-tight text-base-content mb-3">
+      Writing & Technical Notes
+    </h1>
+    <p class="text-base md:text-lg text-base-content/80 leading-relaxed max-w-3xl">
+      Reflections on AI infrastructure, evaluation harnesses, systems engineering, and how autonomous agents are changing the craft of software.
+    </p>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-xl font-bold tracking-tight text-base-content mb-4 flex items-center gap-2">
+      <span>Published Essays</span>
+      <span class="badge badge-primary badge-sm font-mono text-[11px]">{page.data.length} Articles</span>
+    </h2>
+
+    <div class="flex flex-col gap-4">
+      {
+        page.data.map((post) => (
+          <HorizontalCard
+            title={post.data.title}
+            subtitle={new Date(post.data.pubDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+            desc={post.data.description}
+            url={"/blog/" + createSlug(post.data.title, post.slug)}
+            target="_self"
+            badge={post.data.badge}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Upcoming Essay Concepts / Research Notes -->
+  <div class="my-12 p-6 rounded-2xl bg-base-200/40 border border-base-300">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h3 class="text-lg font-bold text-base-content">Upcoming Essays & Drafts</h3>
+        <p class="text-xs text-base-content/60 font-mono">Topics in active formulation from the content bank</p>
+      </div>
+      <span class="badge badge-outline text-xs font-mono">In Progress</span>
+    </div>
+
+    <div class="space-y-3">
+      {
+        upcomingTopics.map((item) => (
+          <div class="p-3.5 rounded-xl bg-base-300/40 border border-base-300/60">
+            <h4 class="text-sm font-semibold text-base-content">{item.title}</h4>
+            <p class="text-xs text-base-content/70 mt-1 leading-relaxed">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
