@@ -2,7 +2,7 @@
 
 Personal portfolio and technical writing by **Jerry (Ruiyang) Ji** — CS student at Cornell University focusing on AI agents, evaluation infrastructure, and full-stack software.
 
-🌐 **Live Site:** [https://jerryji-personal-website.netlify.app](https://jerryji-personal-website.netlify.app)  
+🌐 **Live Site:** [https://jerryji.netlify.app](https://jerryji.netlify.app)  
 📁 **Repository:** [https://github.com/ruiyangji/personal-website](https://github.com/ruiyangji/personal-website)
 
 ---
