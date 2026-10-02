@@ -13,6 +13,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </p>
   </div>
 
+  <!-- Project 0: Trace2Code: Browser Demonstration Compiler -->
+  <div id="trace2code" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xl font-bold text-base-content">Trace2Code: Browser Demonstration Compiler</h2>
+        <span class="badge badge-primary badge-sm font-mono text-[11px]">Program Synthesis</span>
+      </div>
+      <span class="text-xs font-mono text-base-content/60">Fall 2026</span>
+    </div>
+
+    <p class="text-sm text-base-content/85 leading-relaxed mb-4">
+      An end-to-end program synthesis compiler that records human browser interactions and compiles them into deterministic, maintainable, self-healing Playwright automation scripts without runtime LLM dependencies.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-3 p-3.5 rounded-xl bg-base-300/40 text-xs">
+      <div>
+        <div class="font-bold text-sky-400 mb-1">Dual-Mode Capture Engine</div>
+        <p class="text-base-content/80">Captures high-fidelity interaction streams via headless Playwright CDP controllers and an offline-resilient Chrome Extension MV3 daemon with reconnection buffers and PII redaction.</p>
+      </div>
+      <div>
+        <div class="font-bold text-sky-400 mb-1">Semantic Distillation (91.7% Reduction)</div>
+        <p class="text-base-content/80">Coalesces noisy mouse paths, debounces typing streams, and parses DOM snapshot trees into robust multi-tiered locator hierarchies (TestID &rarr; Role/Text &rarr; CSS &rarr; XPath) with zero semantic loss.</p>
+      </div>
+      <div>
+        <div class="font-bold text-emerald-400 mb-1">Multi-Demonstration Alignment & Synthesis</div>
+        <p class="text-base-content/80">Applies Needleman-Wunsch dynamic programming sequence alignment across multiple trace demonstrations to extract parameterized variables (<code class="text-xs">&dollar;&#123;variables.query&#125;</code>) and conditional branches into canonical WorkflowIR.</p>
+      </div>
+      <div>
+        <div class="font-bold text-emerald-400 mb-1">Self-Healing Runtime & Git Diff Emitter</div>
+        <p class="text-base-content/80">Deterministic AST code generator emits standalone Playwright projects. The resilient semantic runtime recovers broken locators on mutated DOMs (100% recovery rate) and automatically emits unified Git patch diffs for review.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-base-300">
+      <div class="flex flex-wrap gap-1.5">
+        <span class="tech-pill">TypeScript</span>
+        <span class="tech-pill">Playwright</span>
+        <span class="tech-pill">Program Synthesis</span>
+        <span class="tech-pill">Chrome DevTools Protocol</span>
+        <span class="tech-pill">Chrome MV3</span>
+        <span class="tech-pill">AST Codegen</span>
+        <span class="tech-pill">Vitest</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-mono text-emerald-400 font-medium">11 Milestones &bull; 22 PRs Shipped</span>
+        <a href="https://github.com/ruiyangji/trace2code" target="_blank" class="text-xs text-primary hover:underline font-mono">
+          GitHub &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Project 1: Meta Chronos & SkillOpt -->
   <div id="meta-chronos" class="mb-8 p-5 rounded-2xl bg-base-200/50 border border-base-300 scroll-mt-20">
     <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
