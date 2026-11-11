@@ -81,6 +81,7 @@ a:hover { color: var(--teal); }
 .home-hero h1 { margin: .8rem 0 1rem; max-width: 13ch; font-size: clamp(3.2rem, 7vw, 6.6rem); line-height: .9; letter-spacing: -.075em; }
 .home-hero-copy { max-width: 57ch; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.65; }
 .home-hero-copy strong { color: var(--ink); }
+.home-intent { max-width: 55ch; margin: .6rem 0 0; color: var(--ink); font-size: .9rem; font-weight: 650; line-height: 1.5; }
 .home-hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
 .portrait-wrap { width: clamp(12rem, 21vw, 18rem); aspect-ratio: 4 / 5; justify-self: end; overflow: hidden; border-radius: 8.5rem 8.5rem 1.2rem 1.2rem; background: var(--surface-muted); }
 .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; }
