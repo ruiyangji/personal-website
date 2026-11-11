@@ -15,8 +15,8 @@ Convert the full portfolio interface to React and Meta Astryx, preserve Astro st
 ## Verification and deployment
 
 - `npm run build` succeeded and generated the static site routes, RSS feed, and sitemap.
-- Netlify CLI status was checked. The local CLI is not authenticated in this workspace, so no authenticated Netlify CLI deployment was available at that check.
-- Next publication step: commit and push the finished source to the connected `main` branch if Git-based Netlify auto-deploy is enabled; otherwise authenticate the existing Netlify CLI and deploy the `dist` output.
+- Netlify CLI status was checked; it is not authenticated in this workspace.
+- Pushed commit `c8ade4c` to the connected `main` branch. The live Netlify site returned HTTP 200 and served the Trace2Code homepage; the main portfolio routes, résumé PDF, and updated image asset also returned HTTP 200.
 
 ## Course context
 
